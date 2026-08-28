@@ -1,0 +1,347 @@
+{
+  "source": "itsfatduck/optimizerDuck Domain/Optimizations/Categories/*.cs",
+  "total": 42,
+  "risk_breakdown": {
+    "Moderate": 13,
+    "Safe": 28,
+    "Risky": 1
+  },
+  "catalog": [
+    {
+      "id": "8462E718-42CA-4BE6-940C-3620BF52A533",
+      "category": "AI",
+      "tweak": "DisableRecall",
+      "risk": "Moderate",
+      "regs_count": 7,
+      "tags": "OptimizationTags.Privacy | OptimizationTags.System | OptimizationTags.Windows11Only,"
+    },
+    {
+      "id": "962C9960-6BFA-4FC5-97D9-BFE772426E39",
+      "category": "AI",
+      "tweak": "DisableClickToDo",
+      "risk": "Safe",
+      "regs_count": 2,
+      "tags": "OptimizationTags.Privacy | OptimizationTags.System | OptimizationTags.Windows11Only,"
+    },
+    {
+      "id": "E3C970B0-129D-4354-BAE4-2732E5BACCF7",
+      "category": "BloatwareAndServices",
+      "tweak": "DisablePreinstalledApps",
+      "risk": "Safe",
+      "regs_count": 4,
+      "tags": "OptimizationTags.System | OptimizationTags.Disk"
+    },
+    {
+      "id": "66126FAC-E79B-4CDA-9F53-F85DD88730A9",
+      "category": "BloatwareAndServices",
+      "tweak": "ConfigureServices",
+      "risk": "Risky",
+      "regs_count": 0,
+      "tags": "OptimizationTags.System | OptimizationTags.Performance | OptimizationTags.Latency"
+    },
+    {
+      "id": "4433CE93-B632-4D67-AE71-0241C31099C0",
+      "category": "Gpu",
+      "tweak": "AmdDisableUlps",
+      "risk": "Safe",
+      "regs_count": 14,
+      "tags": "OptimizationTags.Amd | OptimizationTags.Power,"
+    },
+    {
+      "id": "A3836587-C461-4BEB-9C4C-88493B36C138",
+      "category": "Gpu",
+      "tweak": "AmdDisablePowerGating",
+      "risk": "Moderate",
+      "regs_count": 14,
+      "tags": "OptimizationTags.Amd | OptimizationTags.Performance,"
+    },
+    {
+      "id": "DB379BB5-FC8C-4AD3-BE32-11BE09E76FBA",
+      "category": "Gpu",
+      "tweak": "AmdDisableVideoClockGating",
+      "risk": "Moderate",
+      "regs_count": 13,
+      "tags": "OptimizationTags.Amd | OptimizationTags.Performance,"
+    },
+    {
+      "id": "8A4B4C4D-000E-42DB-8BD7-293067F8FAE7",
+      "category": "Gpu",
+      "tweak": "AmdDisableAspm",
+      "risk": "Safe",
+      "regs_count": 11,
+      "tags": "OptimizationTags.Amd | OptimizationTags.Latency,"
+    },
+    {
+      "id": "FA58802F-B98C-4E98-AA67-067C5A394296",
+      "category": "Gpu",
+      "tweak": "NvidiaDisableDynamicPstate",
+      "risk": "Safe",
+      "regs_count": 8,
+      "tags": "OptimizationTags.Nvidia | OptimizationTags.Power,"
+    },
+    {
+      "id": "9E7702BE-9E03-4C96-A316-C4E435CB993E",
+      "category": "Gpu",
+      "tweak": "NvidiaDisableAsyncPstates",
+      "risk": "Moderate",
+      "regs_count": 6,
+      "tags": "OptimizationTags.Nvidia | OptimizationTags.Performance,"
+    },
+    {
+      "id": "DF8739FF-E322-4958-B369-DF584BB9B0C1",
+      "category": "Gpu",
+      "tweak": "IntelDisableAsyncFlips",
+      "risk": "Safe",
+      "regs_count": 4,
+      "tags": "OptimizationTags.Intel | OptimizationTags.Latency,"
+    },
+    {
+      "id": "EBFB0DED-5D1A-4CD1-B5C0-4F7018DD6054",
+      "category": "Gpu",
+      "tweak": "IntelDisableAdaptiveVsync",
+      "risk": "Safe",
+      "regs_count": 2,
+      "tags": "OptimizationTags.Intel | OptimizationTags.Display,"
+    },
+    {
+      "id": "648EC19A-FDA5-4607-8A7C-148B8B05FB4C",
+      "category": "Performance",
+      "tweak": "DisableBackgroundApps",
+      "risk": "Moderate",
+      "regs_count": 3,
+      "tags": "OptimizationTags.System | OptimizationTags.Performance | OptimizationTags.Ram"
+    },
+    {
+      "id": "CD436A05-51F1-46E9-B4DE-5262EE7F812A",
+      "category": "Performance",
+      "tweak": "ConsolidateServiceHosts",
+      "risk": "Moderate",
+      "regs_count": 1,
+      "tags": "OptimizationTags.System | OptimizationTags.Performance | OptimizationTags.Ram"
+    },
+    {
+      "id": "C51E4187-BE49-4376-A97D-46C967A033B5",
+      "category": "Performance",
+      "tweak": "ProcessPriority",
+      "risk": "Safe",
+      "regs_count": 4,
+      "tags": "OptimizationTags.System | OptimizationTags.Performance"
+    },
+    {
+      "id": "FFB49D94-CCA9-4591-B329-6FDA3A2758F9",
+      "category": "Performance",
+      "tweak": "OptimizeMultimediaScheduler",
+      "risk": "Safe",
+      "regs_count": 10,
+      "tags": "OptimizationTags.System"
+    },
+    {
+      "id": "613FE85C-770D-441C-B97A-147B89B99028",
+      "category": "Performance",
+      "tweak": "KeyboardLatencyOptimization",
+      "risk": "Safe",
+      "regs_count": 6,
+      "tags": "OptimizationTags.Latency | OptimizationTags.System | OptimizationTags.Performance"
+    },
+    {
+      "id": "B7BB32F8-C756-47A4-83F2-F6E7EC7D45B8",
+      "category": "Performance",
+      "tweak": "DisableAccessibilityKeyboardHotkeys",
+      "risk": "Moderate",
+      "regs_count": 4,
+      "tags": "OptimizationTags.Latency | OptimizationTags.System"
+    },
+    {
+      "id": "D5A2F7C4-1E8B-4C93-B6D0-8F41AE92C7E3",
+      "category": "Performance",
+      "tweak": "LiftWebDavFileSizeLimit",
+      "risk": "Safe",
+      "regs_count": 1,
+      "tags": "OptimizationTags.System | OptimizationTags.Network | OptimizationTags.Performance"
+    },
+    {
+      "id": "C7A97DDE-6631-48BF-A0A8-590D447A81AB",
+      "category": "PowerManagement",
+      "tweak": "DisableHibernateAndFastStartup",
+      "risk": "Moderate",
+      "regs_count": 1,
+      "tags": "OptimizationTags.System | OptimizationTags.Power | OptimizationTags.Performance"
+    },
+    {
+      "id": "805F993F-67F9-4F5A-8606-998EA9087CF0",
+      "category": "PowerManagement",
+      "tweak": "DisableUSBPowerSaving",
+      "risk": "Safe",
+      "regs_count": 0,
+      "tags": "OptimizationTags.Latency | OptimizationTags.Performance"
+    },
+    {
+      "id": "EE71E993-EE41-4449-8856-84B09B2B0C46",
+      "category": "PowerManagement",
+      "tweak": "InstallOptimizerDuckPowerPlan",
+      "risk": "Safe",
+      "regs_count": 0,
+      "tags": "OptimizationTags.Latency | OptimizationTags.Performance | OptimizationTags.Power"
+    },
+    {
+      "id": "D2392F86-2B35-4BA2-939B-6FF38EE18EE6",
+      "category": "PowerManagement",
+      "tweak": "DisablePowerSaving",
+      "risk": "Safe",
+      "regs_count": 2,
+      "tags": "OptimizationTags.Power | OptimizationTags.Performance | OptimizationTags.System"
+    },
+    {
+      "id": "74DC8DAC-1F90-4BBD-ACF7-7E626749D71C",
+      "category": "SecurityAndPrivacy",
+      "tweak": "DisableTelemetry",
+      "risk": "Moderate",
+      "regs_count": 12,
+      "tags": "OptimizationTags.Security | OptimizationTags.Privacy | OptimizationTags.System"
+    },
+    {
+      "id": "097B1C61-F372-4B9E-A1C9-D5E6F7A8B9C0",
+      "category": "SecurityAndPrivacy",
+      "tweak": "DisableErrorReporting",
+      "risk": "Moderate",
+      "regs_count": 5,
+      "tags": "OptimizationTags.System | OptimizationTags.Privacy"
+    },
+    {
+      "id": "B1C2D3E4-F5A6-4B7C-8D9E-0F1A2B3C4D5E",
+      "category": "SecurityAndPrivacy",
+      "tweak": "DisableAdvertisingAndSuggestions",
+      "risk": "Safe",
+      "regs_count": 12,
+      "tags": "OptimizationTags.Privacy | OptimizationTags.System"
+    },
+    {
+      "id": "26F3AE39-4EAA-45D4-9375-B244159D5EB3",
+      "category": "SecurityAndPrivacy",
+      "tweak": "DisableNewsAndInterests",
+      "risk": "Safe",
+      "regs_count": 7,
+      "tags": "OptimizationTags.Privacy | OptimizationTags.System"
+    },
+    {
+      "id": "6D217B90-0957-4861-B3F5-58ECF3E236EE",
+      "category": "SecurityAndPrivacy",
+      "tweak": "HideMeetNowButton",
+      "risk": "Safe",
+      "regs_count": 7,
+      "tags": "OptimizationTags.Privacy | OptimizationTags.Windows10Only | OptimizationTags.System,"
+    },
+    {
+      "id": "A1B2C3D4-E5F6-4A7B-8C9D-0E1F2A3B4C5D",
+      "category": "SecurityAndPrivacy",
+      "tweak": "DisableActivityHistory",
+      "risk": "Safe",
+      "regs_count": 10,
+      "tags": "OptimizationTags.Privacy | OptimizationTags.System"
+    },
+    {
+      "id": "C1D2E3F4-A5B6-4C7D-8E9F-0A1B2C3D4E5F",
+      "category": "SecurityAndPrivacy",
+      "tweak": "DisableLocationAndSensors",
+      "risk": "Safe",
+      "regs_count": 10,
+      "tags": "OptimizationTags.Privacy | OptimizationTags.System"
+    },
+    {
+      "id": "4107430C-0074-4380-90E7-3662572E4720",
+      "category": "SecurityAndPrivacy",
+      "tweak": "DisableAutoLogger",
+      "risk": "Moderate",
+      "regs_count": 10,
+      "tags": "OptimizationTags.Privacy | OptimizationTags.System | OptimizationTags.Performance"
+    },
+    {
+      "id": "6856782A-B530-4623-BD89-942D73FB82FD",
+      "category": "SecurityAndPrivacy",
+      "tweak": "DisableCortana",
+      "risk": "Moderate",
+      "regs_count": 9,
+      "tags": "OptimizationTags.Privacy"
+    },
+    {
+      "id": "64C6BEC3-B58C-4E57-830A-1DE1F4650542",
+      "category": "SecurityAndPrivacy",
+      "tweak": "DisableCopilot",
+      "risk": "Moderate",
+      "regs_count": 8,
+      "tags": "OptimizationTags.Privacy"
+    },
+    {
+      "id": "00C997FE-1CB7-41BD-B473-65A81333AEE9",
+      "category": "SecurityAndPrivacy",
+      "tweak": "DisableContentDeliveryManager",
+      "risk": "Safe",
+      "regs_count": 7,
+      "tags": "OptimizationTags.System | OptimizationTags.Performance | OptimizationTags.Privacy"
+    },
+    {
+      "id": "A4823C34-0BDD-4418-83A0-4968102D1771",
+      "category": "SecurityAndPrivacy",
+      "tweak": "DisableFindMyDevice",
+      "risk": "Safe",
+      "regs_count": 2,
+      "tags": "OptimizationTags.Privacy | OptimizationTags.System"
+    },
+    {
+      "id": "6F242AD6-4717-4161-A7BF-A2AF5F0C9BDD",
+      "category": "SecurityAndPrivacy",
+      "tweak": "DisableDeliveryOptimization",
+      "risk": "Safe",
+      "regs_count": 1,
+      "tags": "OptimizationTags.Network | OptimizationTags.Privacy"
+    },
+    {
+      "id": "9E2C4F7D-5A6B-4E9D-8C71-6E2F5A9C3314",
+      "category": "UserExperience",
+      "tweak": "SpeedUpExplorerAndMenus",
+      "risk": "Safe",
+      "regs_count": 7,
+      "tags": "OptimizationTags.System | OptimizationTags.Performance | OptimizationTags.Latency"
+    },
+    {
+      "id": "A3D1E8F2-7B4C-4A5D-9E62-8F3A1B7C4D59",
+      "category": "UserExperience",
+      "tweak": "DisableVisualEffects",
+      "risk": "Safe",
+      "regs_count": 6,
+      "tags": "OptimizationTags.System | OptimizationTags.Performance | OptimizationTags.Visual"
+    },
+    {
+      "id": "950cd979-7483-400b-a207-abd4741a1270",
+      "category": "UserExperience",
+      "tweak": "DisableStartMenuWebSearch",
+      "risk": "Safe",
+      "regs_count": 3,
+      "tags": "OptimizationTags.System | OptimizationTags.Performance | OptimizationTags.Latency"
+    },
+    {
+      "id": "31A6274C-AD37-4FFA-A32E-727FB71AD085",
+      "category": "UserExperience",
+      "tweak": "DisableStartRecommended",
+      "risk": "Safe",
+      "regs_count": 3,
+      "tags": "OptimizationTags.Privacy | OptimizationTags.Visual | OptimizationTags.Windows11Only,"
+    },
+    {
+      "id": "B36652B1-D094-4D39-BEB8-7961E6094A2E",
+      "category": "UserExperience",
+      "tweak": "DisableSettings365Ads",
+      "risk": "Safe",
+      "regs_count": 2,
+      "tags": "OptimizationTags.Visual | OptimizationTags.Privacy"
+    },
+    {
+      "id": "3F8B91D2-6A47-4E05-9C2B-E70D14F8A5C6",
+      "category": "UserExperience",
+      "tweak": "MaximizeUpdatePauseLimit",
+      "risk": "Safe",
+      "regs_count": 1,
+      "tags": "OptimizationTags.System | OptimizationTags.Network"
+    }
+  ]
+}
