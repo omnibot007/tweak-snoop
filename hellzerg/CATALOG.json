@@ -1,0 +1,387 @@
+{
+  "source": "hellzerg/optimizer OptimizeHelper.cs",
+  "total_disables": 62,
+  "pairs": 60,
+  "catalog": [
+    {
+      "tweak": "DisableTelemetryRunner",
+      "revert": null,
+      "regs": 0
+    },
+    {
+      "tweak": "DisablePeriodicRegistryBackup",
+      "revert": "EnablePeriodicRegistryBackup",
+      "regs": 0
+    },
+    {
+      "tweak": "DisablePerformanceTweaks",
+      "revert": "EnablePerformanceTweaks",
+      "regs": 11
+    },
+    {
+      "tweak": "DisableTelemetryServices",
+      "revert": "EnableTelemetryServices",
+      "regs": 18
+    },
+    {
+      "tweak": "DisableMediaPlayerSharing",
+      "revert": "EnableMediaPlayerSharing",
+      "regs": 1
+    },
+    {
+      "tweak": "DisableNetworkThrottling",
+      "revert": "EnableNetworkThrottling",
+      "regs": 2
+    },
+    {
+      "tweak": "DisableSkypeAds",
+      "revert": "EnableSkypeAds",
+      "regs": 0
+    },
+    {
+      "tweak": "DisableHomeGroup",
+      "revert": "EnableHomeGroup",
+      "regs": 3
+    },
+    {
+      "tweak": "DisablePrintService",
+      "revert": "EnablePrintService",
+      "regs": 1
+    },
+    {
+      "tweak": "DisableSuperfetch",
+      "revert": "EnableSuperfetch",
+      "regs": 5
+    },
+    {
+      "tweak": "DisableCompatibilityAssistant",
+      "revert": "EnableCompatibilityAssistant",
+      "regs": 1
+    },
+    {
+      "tweak": "DisableSystemRestore",
+      "revert": "EnableSystemRestore",
+      "regs": 2
+    },
+    {
+      "tweak": "DisableDefender",
+      "revert": "EnableDefender",
+      "regs": 19
+    },
+    {
+      "tweak": "DisableSearch",
+      "revert": "EnableSearch",
+      "regs": 1
+    },
+    {
+      "tweak": "DisableNTFSTimeStamp",
+      "revert": "EnableNTFSTimeStamp",
+      "regs": 0
+    },
+    {
+      "tweak": "DisableErrorReporting",
+      "revert": "EnableErrorReporting",
+      "regs": 5
+    },
+    {
+      "tweak": "DisableTransparency",
+      "revert": "EnableTransparency",
+      "regs": 0
+    },
+    {
+      "tweak": "DisableLegacyVolumeSlider",
+      "revert": "EnableLegacyVolumeSlider",
+      "regs": 1
+    },
+    {
+      "tweak": "DisableTaskbarColor",
+      "revert": "EnableTaskbarColor",
+      "regs": 3
+    },
+    {
+      "tweak": "DisableCortana",
+      "revert": "EnableCortana",
+      "regs": 11
+    },
+    {
+      "tweak": "DisableGamingMode",
+      "revert": "EnableGamingMode",
+      "regs": 4
+    },
+    {
+      "tweak": "DisableXboxLive",
+      "revert": "EnableXboxLive",
+      "regs": 5
+    },
+    {
+      "tweak": "DisableAutomaticUpdates",
+      "revert": "EnableAutomaticUpdates",
+      "regs": 10
+    },
+    {
+      "tweak": "DisableStoreUpdates",
+      "revert": "EnableStoreUpdates",
+      "regs": 6
+    },
+    {
+      "tweak": "DisableOneDrive",
+      "revert": "EnableOneDrive",
+      "regs": 1
+    },
+    {
+      "tweak": "DisableSensorServices",
+      "revert": "EnableSensorServices",
+      "regs": 2
+    },
+    {
+      "tweak": "DisableTelemetryTasks",
+      "revert": "EnableTelemetryTasks",
+      "regs": 0
+    },
+    {
+      "tweak": "DisableOffice2016Telemetry",
+      "revert": "EnableOffice2016Telemetry",
+      "regs": 0
+    },
+    {
+      "tweak": "DisableNewsInterests",
+      "revert": "EnableNewsInterests",
+      "regs": 3
+    },
+    {
+      "tweak": "DisableGameBar",
+      "revert": "EnableGameBar",
+      "regs": 7
+    },
+    {
+      "tweak": "DisableStartMenuAds",
+      "revert": "EnableStartMenuAds",
+      "regs": 22
+    },
+    {
+      "tweak": "DisableMyPeople",
+      "revert": "EnableMyPeople",
+      "regs": 1
+    },
+    {
+      "tweak": "DisableWindowsInk",
+      "revert": "EnableWindowsInk",
+      "regs": 3
+    },
+    {
+      "tweak": "DisableSpellingAndTypingFeatures",
+      "revert": "EnableSpellingAndTypingFeatures",
+      "regs": 6
+    },
+    {
+      "tweak": "DisableFaxService",
+      "revert": "EnableFaxService",
+      "regs": 1
+    },
+    {
+      "tweak": "DisableInsiderService",
+      "revert": "EnableInsiderService",
+      "regs": 1
+    },
+    {
+      "tweak": "DisableForcedFeatureUpdates",
+      "revert": "EnableForcedFeatureUpdates",
+      "regs": 0
+    },
+    {
+      "tweak": "DisableSmartScreen",
+      "revert": "EnableSmartScreen",
+      "regs": 7
+    },
+    {
+      "tweak": "DisableCloudClipboard",
+      "revert": "EnableCloudClipboard",
+      "regs": 4
+    },
+    {
+      "tweak": "DisableLongPaths",
+      "revert": "EnableLongPaths",
+      "regs": 1
+    },
+    {
+      "tweak": "DisableStickyKeys",
+      "revert": "EnableStickyKeys",
+      "regs": 6
+    },
+    {
+      "tweak": "DisableActionCenter",
+      "revert": "EnableActionCenter",
+      "regs": 0
+    },
+    {
+      "tweak": "DisableWindows10Start",
+      "revert": "EnableWindows10Start",
+      "regs": 0
+    },
+    {
+      "tweak": "DisableClassicPhotoViewer",
+      "revert": null,
+      "regs": 0
+    },
+    {
+      "tweak": "DisableVirtualizationBasedSecurity",
+      "revert": "EnableVirtualizationBasedSecurity",
+      "regs": 1
+    },
+    {
+      "tweak": "DisableSnapAssist",
+      "revert": "EnableSnapAssist",
+      "regs": 2
+    },
+    {
+      "tweak": "DisableWidgets",
+      "revert": "EnableWidgets",
+      "regs": 1
+    },
+    {
+      "tweak": "DisableChat",
+      "revert": "EnableChat",
+      "regs": 3
+    },
+    {
+      "tweak": "DisableShowMoreOptions",
+      "revert": "EnableShowMoreOptions",
+      "regs": 1
+    },
+    {
+      "tweak": "DisableTPMCheck",
+      "revert": "EnableTPMCheck",
+      "regs": 7
+    },
+    {
+      "tweak": "DisableFileExplorerClassicRibbon",
+      "revert": "EnableFileExplorerClassicRibbon",
+      "regs": 0
+    },
+    {
+      "tweak": "DisableFilesCompactMode",
+      "revert": "EnableFilesCompactMode",
+      "regs": 1
+    },
+    {
+      "tweak": "DisableStickers",
+      "revert": "EnableStickers",
+      "regs": 0
+    },
+    {
+      "tweak": "DisableEdgeDiscoverBar",
+      "revert": "EnableEdgeDiscoverBar",
+      "regs": 3
+    },
+    {
+      "tweak": "DisableEdgeTelemetry",
+      "revert": "EnableEdgeTelemetry",
+      "regs": 14
+    },
+    {
+      "tweak": "DisableCoPilotAI",
+      "revert": "EnableCoPilotAI",
+      "regs": 7
+    },
+    {
+      "tweak": "DisableVisualStudioTelemetry",
+      "revert": "EnableVisualStudioTelemetry",
+      "regs": 12
+    },
+    {
+      "tweak": "DisableNvidiaTelemetry",
+      "revert": "EnableNvidiaTelemetry",
+      "regs": 1
+    },
+    {
+      "tweak": "DisableChromeTelemetry",
+      "revert": "EnableChromeTelemetry",
+      "regs": 6
+    },
+    {
+      "tweak": "DisableFirefoxTelemetry",
+      "revert": "EnableFirefoxTelemetry",
+      "regs": 2
+    },
+    {
+      "tweak": "DisableUTCTime",
+      "revert": "EnableUTCTime",
+      "regs": 0
+    },
+    {
+      "tweak": "DisableModernStandby",
+      "revert": "EnableModernStandby",
+      "regs": 1
+    }
+  ],
+  "only_enables": [
+    "EnableQuickAccessHistory",
+    "EnableLightTheme",
+    "EnableDarkTheme"
+  ],
+  "deep_snoop": {
+    "CleanHelper": {
+      "file": "Optimizer/CleanHelper.cs",
+      "preview_temp": "TempFolder (%TEMP%) + Profiling",
+      "preview_minidumps": "%WINDIR%\\Minidump",
+      "preview_error_reports": "%LOCALAPPDATA%\\Microsoft\\Windows\\WER\\* + %ProgramData%\\Microsoft\\Windows\\WER\\*",
+      "browser_targets": [
+        "IE INetCache/WebCache",
+        "Chrome Default/Cache,Code Cache,GPUCache,Service Worker,File System,Login Data",
+        "Firefox Profiles cookies.sqlite/places.sqlite/cache2",
+        "Edge Cache/Cookies/History/Session",
+        "Brave Cache/Cookies/History/Session/Login Data"
+      ],
+      "recycle_bin": "SHEmptyRecycleBin",
+      "note": "All via PreviewFolder->Clean() = File.Delete/Directory.Delete \u2014 DESTRUCTIVE, no recycle fallback like pc-tweaker"
+    },
+    "UWPHelper": {
+      "file": "Optimizer/UWPHelper.cs",
+      "get": "Get-AppxPackage | Select Name,InstallLocation (or Where NonRemovable=False)",
+      "uninstall": "Get-AppxPackage -AllUsers {app} | Remove-AppxPackage",
+      "restore": "Get-AppxPackage -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register \\.InstallLocation\\AppXManifest.xml}",
+      "note": "Full UWP catalog, not just 17 like Viridian \u2014 any AppX"
+    },
+    "StartupHelper": {
+      "file": "Optimizer/StartupHelper.cs",
+      "keys": [
+        "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+        "HKLM\\RunOnce",
+        "HKLM\\Wow6432Node\\...\\Run",
+        "HKCU\\Software\\...\\Run",
+        "HKCU\\RunOnce",
+        "%ProgramData%\\Microsoft\\Windows\\Start Menu\\Programs\\Startup",
+        "%APPDATA%\\...\\Startup"
+      ],
+      "note": "Enumerates reg + folder startups, toggles via registry/folder delete"
+    },
+    "HostsHelper": {
+      "file": "Optimizer/HostsHelper.cs",
+      "path": "%SystemRoot%\\System32\\drivers\\etc\\hosts",
+      "ops": [
+        "ReadHosts",
+        "SaveHosts (sanitize double spaces)",
+        "AddEntry",
+        "RemoveEntry",
+        "RemoveEntryFromTemplate",
+        "RestoreDefaultHosts (from Resources/hosts)",
+        "ReadOnly toggle"
+      ],
+      "note": "Hosts blocklist editor, can lock read-only"
+    },
+    "Utilities_extra": {
+      "files": [
+        "Optimizer/Utilities.cs",
+        "Optimizer/SilentOps.cs"
+      ],
+      "ops": [
+        "DisableSvcHostProcessSplitting (RAM-based)",
+        "EnableSvcHostProcessSplitting",
+        "Enable/Disable TaskManager/CommandPrompt/ControlPanel/FolderOptions/RunDialog/ContextMenu/Firewall/RegistryEditor",
+        "ProcessCleaner",
+        "DNS SetDNSForAllNICs (CleanBrowsing)",
+        "RegistryFixes"
+      ]
+    }
+  }
+}

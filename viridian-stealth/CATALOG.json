@@ -1,0 +1,28 @@
+{
+  "source": "ViridianFreeEngine.exe v0.1.0 — extracted via re.findall(b'[ -~]{6,}') + live stdio JSON",
+  "id": "telemetry-stealth",
+  "forward": [
+    "schtasks /change /tn \"\\Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator\" /disable",
+    "schtasks /change /tn \"\\Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser\" /disable",
+    "schtasks /change /tn \"\\Microsoft\\Windows\\Application Experience\\ProgramDataUpdater\" /disable",
+    "schtasks /Change /TN \"Microsoft\\Windows\\Defrag\\ScheduledDefrag\" /Disable",
+    "schtasks /Change /TN \"Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector\" /Disable",
+    "schtasks /Change /TN \"Microsoft\\Windows\\Feedback\\Siuf\\DmClient\" /Disable",
+    "schtasks /Change /TN \"Microsoft\\Windows\\Maps\\MapsUpdateTask\" /Disable",
+    "schtasks /Change /TN \"Microsoft\\Windows\\Maintenance\\WinSAT\" /Disable",
+    "Reg.exe add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v \"AllowTelemetry\" /t REG_DWORD /d \"0\" /f",
+    "Reg.exe add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo\" /v \"Enabled\" /t REG_DWORD /d \"0\" /f"
+  ],
+  "revert": [
+    "schtasks /change /tn \"\\Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator\" /enable",
+    "schtasks /change /tn \"\\Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser\" /enable",
+    "schtasks /change /tn \"\\Microsoft\\Windows\\Application Experience\\ProgramDataUpdater\" /enable",
+    "schtasks /Change /TN \"Microsoft\\Windows\\Defrag\\ScheduledDefrag\" /Enable",
+    "schtasks /Change /TN \"Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector\" /Enable",
+    "schtasks /Change /TN \"Microsoft\\Windows\\Feedback\\Siuf\\DmClient\" /Enable",
+    "schtasks /Change /TN \"Microsoft\\Windows\\Maps\\MapsUpdateTask\" /Enable",
+    "schtasks /Change /TN \"Microsoft\\Windows\\Maintenance\\WinSAT\" /Enable",
+    "Reg.exe add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v \"AllowTelemetry\" /t REG_DWORD /d \"1\" /f",
+    "Reg.exe add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo\" /v \"Enabled\" /t REG_DWORD /d \"1\" /f"
+  ]
+}

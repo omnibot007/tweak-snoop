@@ -1,0 +1,408 @@
+{
+  "source": {
+    "app": "Viridian Free Utility",
+    "version": "0.1.0",
+    "engine_path": "C:\\Users\\LENOVO\\AppData\\Local\\Programs\\Viridian Free Utility\\resources\\engine\\ViridianFreeEngine.exe",
+    "engine_bytes": 321536,
+    "asar": "C:\\Users\\LENOVO\\AppData\\Local\\Programs\\Viridian Free Utility\\resources\\app.asar",
+    "extracted": "2026-08-28",
+    "method": "stdio JSON action:steps per group + raw binary null-terminated ASCII strings (re.findall b'[ -~]{6,}')"
+  },
+  "groups": [
+    {
+      "id": "network-basic",
+      "ui": "Network Tweaks → Basic Network Tweaks",
+      "revertible": true,
+      "labels": [
+        "Resetting Winsock catalog",
+        "Resetting TCP/IP stack",
+        "Flushing DNS resolver cache",
+        "Enabling Receive Side Scaling (RSS)",
+        "Disabling ECN capability",
+        "Disabling TCP timestamps",
+        "Setting Time To Live to 64",
+        "Enabling TCP window scaling",
+        "Disabling network throttling index",
+        "Disabling TCP heuristics (limiting)"
+      ],
+      "forward": [
+        "netsh winsock reset",
+        "netsh int ip reset",
+        "ipconfig /flushdns",
+        "netsh int tcp set global rss=enabled",
+        "netsh int tcp set global ecncapability=disabled",
+        "netsh int tcp set global timestamps=disabled",
+        "Reg.exe add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\" /v \"DefaultTTL\" /t REG_DWORD /d \"64\" /f",
+        "Reg.exe add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\" /v \"Tcp1323Opts\" /t REG_DWORD /d \"1\" /f",
+        "Reg.exe add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\" /v \"NetworkThrottlingIndex\" /t REG_DWORD /d \"4294967295\" /f",
+        "netsh interface tcp set heuristics disabled"
+      ],
+      "revert": [
+        "netsh int tcp set global rss=default",
+        "netsh int tcp set global ecncapability=default",
+        "netsh int tcp set global timestamps=default",
+        "Reg.exe delete \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\" /v \"DefaultTTL\" /f",
+        "Reg.exe delete \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\" /v \"Tcp1323Opts\" /f",
+        "Reg.exe add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\" /v \"NetworkThrottlingIndex\" /t REG_DWORD /d \"10\" /f",
+        "netsh interface tcp set heuristics default"
+      ]
+    },
+    {
+      "id": "debloat",
+      "ui": "Windows Tweaks → Debloat Windows",
+      "revertible": false,
+      "note": "Remove-AppxPackage only; no Add-AppxPackage in binary. Revert button will not reinstall. Manual: Get-AppxPackage -AllUsers *<name>* or reinstall from Microsoft Store.",
+      "labels": [
+        "Removing Bing Weather",
+        "Removing Get Help",
+        "Removing Get Started",
+        "Removing Messaging",
+        "Removing 3D Viewer",
+        "Removing Solitaire Collection",
+        "Removing Sticky Notes",
+        "Removing Mixed Reality Portal",
+        "Removing OneConnect",
+        "Removing People",
+        "Removing Print 3D",
+        "Removing Skype",
+        "Removing Alarms",
+        "Removing Maps",
+        "Removing Feedback Hub",
+        "Removing Your Phone",
+        "Removing 3D Builder"
+      ],
+      "forward": [
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.BingWeather* | Remove-AppxPackage\"",
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.GetHelp* | Remove-AppxPackage\"",
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.Getstarted* | Remove-AppxPackage\"",
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.Messaging* | Remove-AppxPackage\"",
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.Microsoft3DViewer* | Remove-AppxPackage\"",
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage\"",
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.MicrosoftStickyNotes* | Remove-AppxPackage\"",
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.MixedReality.Portal* | Remove-AppxPackage\"",
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.OneConnect* | Remove-AppxPackage\"",
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.People* | Remove-AppxPackage\"",
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.Print3D* | Remove-AppxPackage\"",
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.SkypeApp* | Remove-AppxPackage\"",
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.WindowsAlarms* | Remove-AppxPackage\"",
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.WindowsMaps* | Remove-AppxPackage\"",
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.WindowsFeedbackHub* | Remove-AppxPackage\"",
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.YourPhone* | Remove-AppxPackage\"",
+        "Powershell.exe -command \"Get-AppxPackage *Microsoft.3dBuilder* | Remove-AppxPackage\""
+      ],
+      "revert": []
+    },
+    {
+      "id": "visual-tweaks",
+      "ui": "Windows Tweaks → Visual Tweaks",
+      "revertible": true,
+      "labels": [
+        "Disabling transparency",
+        "Disabling taskbar animations",
+        "Hiding Task View button",
+        "Disabling File Explorer ads",
+        "Enabling dark theme",
+        "Showing file extensions"
+      ],
+      "forward": [
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\" /v \"EnableTransparency\" /t REG_DWORD /d \"0\" /f",
+        "Reg.exe add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"TaskbarAnimations\" /t REG_DWORD /d 0 /f",
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"ShowTaskViewButton\" /t REG_DWORD /d \"0\" /f",
+        "Reg.exe add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"ShowSyncProviderNotifications\" /t REG_DWORD /d \"0\" /f",
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\" /v \"AppsUseLightTheme\" /t REG_DWORD /d \"0\" /f",
+        "Reg.exe add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"HideFileExt\" /t REG_DWORD /d \"0\" /f"
+      ],
+      "revert": [
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\" /v \"EnableTransparency\" /t REG_DWORD /d \"1\" /f",
+        "Reg.exe add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"TaskbarAnimations\" /t REG_DWORD /d 1 /f",
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"ShowTaskViewButton\" /t REG_DWORD /d \"1\" /f",
+        "Reg.exe add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"ShowSyncProviderNotifications\" /t REG_DWORD /d \"1\" /f",
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\" /v \"AppsUseLightTheme\" /t REG_DWORD /d \"1\" /f",
+        "Reg.exe add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"HideFileExt\" /t REG_DWORD /d \"1\" /f"
+      ]
+    },
+    {
+      "id": "disable-animations",
+      "ui": "Windows Tweaks → Disable Animations",
+      "revertible": true,
+      "labels": [
+        "Disabling transparency",
+        "Disabling taskbar animations",
+        "Disabling Aero Shake",
+        "Disabling window animations",
+        "Removing menu show delay"
+      ],
+      "forward": [
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\" /v \"EnableTransparency\" /t REG_DWORD /d \"0\" /f",
+        "Reg.exe add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"TaskbarAnimations\" /t REG_DWORD /d 0 /f",
+        "Reg.exe add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"DisallowShaking\" /t REG_DWORD /d \"1\" /f",
+        "Reg.exe add \"HKCU\\Control Panel\\Desktop\\WindowMetrics\" /v \"MinAnimate\" /t REG_SZ /d \"0\" /f",
+        "Reg.exe add \"HKCU\\Control Panel\\Desktop\" /v \"MenuShowDelay\" /t REG_SZ /d \"0\" /f"
+      ],
+      "revert": [
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\" /v \"EnableTransparency\" /t REG_DWORD /d \"1\" /f",
+        "Reg.exe add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"TaskbarAnimations\" /t REG_DWORD /d 1 /f",
+        "Reg.exe add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"DisallowShaking\" /t REG_DWORD /d \"0\" /f",
+        "Reg.exe add \"HKCU\\Control Panel\\Desktop\\WindowMetrics\" /v \"MinAnimate\" /t REG_SZ /d \"1\" /f",
+        "Reg.exe add \"HKCU\\Control Panel\\Desktop\" /v \"MenuShowDelay\" /t REG_SZ /d \"400\" /f"
+      ]
+    },
+    {
+      "id": "power-plan",
+      "ui": "Windows Tweaks → Performance Power Plan",
+      "revertible": true,
+      "labels": [
+        "Disabling hibernation",
+        "Disabling power throttling",
+        "Disabling fast startup",
+        "Activating High Performance plan"
+      ],
+      "forward": [
+        "Reg.exe add HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power /v HibernateEnabled /t REG_DWORD /d 0 /f",
+        "Reg.exe add HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\PowerThrottling /v PowerThrottlingOff /t REG_DWORD /d 1 /f",
+        "Reg.exe add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power\" /v \"HiberbootEnabled\" /t REG_DWORD /d \"0\" /f",
+        "powercfg /setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c"
+      ],
+      "revert": [
+        "Reg.exe add HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power /v HibernateEnabled /t REG_DWORD /d 1 /f",
+        "Reg.exe add HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\PowerThrottling /v PowerThrottlingOff /t REG_DWORD /d 0 /f",
+        "Reg.exe add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power\" /v \"HiberbootEnabled\" /t REG_DWORD /d \"1\" /f",
+        "powercfg /setactive 381b4222-f694-41f0-9685-ff5bb260df2e"
+      ]
+    },
+    {
+      "id": "system-clean",
+      "ui": "General Tweaks → System Clean",
+      "revertible": false,
+      "note": "Deletes files. No revert in engine; files not backed up.",
+      "labels": [
+        "Clearing user temp files",
+        "Clearing Windows temp files",
+        "Clearing prefetch cache",
+        "Clearing Windows Update cache",
+        "Clearing AutoLogger telemetry log"
+      ],
+      "forward": [
+        "powershell -NoProfile -WindowStyle Hidden -Command \"Remove-Item -Path $env:TEMP\\* -Recurse -Force -ErrorAction SilentlyContinue\"",
+        "powershell -NoProfile -WindowStyle Hidden -Command \"Remove-Item -Path $env:SystemRoot\\Temp\\* -Recurse -Force -ErrorAction SilentlyContinue\"",
+        "powershell -NoProfile -WindowStyle Hidden -Command \"Remove-Item -Path $env:SystemRoot\\Prefetch\\* -Recurse -Force -ErrorAction SilentlyContinue\"",
+        "powershell -NoProfile -WindowStyle Hidden -Command \"Remove-Item -Path $env:SystemRoot\\SoftwareDistribution\\Download\\* -Recurse -Force -ErrorAction SilentlyContinue\"",
+        "powershell -NoProfile -WindowStyle Hidden -Command \"Set-Content -Path $env:ProgramData\\Microsoft\\Diagnosis\\ETLLogs\\AutoLogger\\AutoLogger-Diagtrack-Listener.etl -Value '' -ErrorAction SilentlyContinue\""
+      ],
+      "revert": []
+    },
+    {
+      "id": "game-mode",
+      "ui": "General Tweaks → Enable Game Mode",
+      "revertible": true,
+      "labels": [
+        "Allowing auto Game Mode",
+        "Enabling auto Game Mode"
+      ],
+      "forward": [
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\GameBar\" /v \"AllowAutoGameMode\" /t REG_DWORD /d \"1\" /f",
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\GameBar\" /v \"AutoGameModeEnabled\" /t REG_DWORD /d \"1\" /f"
+      ],
+      "revert": [
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\GameBar\" /v \"AllowAutoGameMode\" /t REG_DWORD /d \"0\" /f",
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\GameBar\" /v \"AutoGameModeEnabled\" /t REG_DWORD /d \"0\" /f"
+      ]
+    },
+    {
+      "id": "mouse-fix",
+      "ui": "General Tweaks → Mouse Precision Fix",
+      "revertible": true,
+      "labels": [
+        "Disabling mouse acceleration (MouseSpeed)",
+        "Disabling mouse acceleration (Threshold1)",
+        "Disabling mouse acceleration (Threshold2)",
+        "Enabling 1:1 pixel mouse movement"
+      ],
+      "forward": [
+        "Reg.exe add \"HKCU\\Control Panel\\Mouse\" /v \"MouseSpeed\" /t REG_SZ /d \"0\" /f",
+        "Reg.exe add \"HKCU\\Control Panel\\Mouse\" /v \"MouseThreshold1\" /t REG_SZ /d \"0\" /f",
+        "Reg.exe add \"HKCU\\Control Panel\\Mouse\" /v \"MouseThreshold2\" /t REG_SZ /d \"0\" /f",
+        "Reg.exe add \"HKCU\\Control Panel\\Mouse\" /v \"MouseSensitivity\" /t REG_SZ /d \"10\" /f"
+      ],
+      "revert": [
+        "Reg.exe add \"HKCU\\Control Panel\\Mouse\" /v \"MouseSpeed\" /t REG_SZ /d \"1\" /f",
+        "Reg.exe add \"HKCU\\Control Panel\\Mouse\" /v \"MouseThreshold1\" /t REG_SZ /d \"6\" /f",
+        "Reg.exe add \"HKCU\\Control Panel\\Mouse\" /v \"MouseThreshold2\" /t REG_SZ /d \"10\" /f"
+      ]
+    },
+    {
+      "id": "startup-opt",
+      "ui": "General Tweaks → Startup Optimizer",
+      "revertible": true,
+      "labels": [
+        "Disabling Discord at startup",
+        "Disabling Spotify at startup",
+        "Disabling Steam at startup",
+        "Disabling Epic Games at startup"
+      ],
+      "forward": [
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run\" /v \"Discord\" /t REG_BINARY /d \"0300000066AF9C7C5A46D901\" /f",
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run\" /v \"Spotify\" /t REG_BINARY /d \"0300000070E93D7B5A46D901\" /f",
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run\" /v \"Steam\" /t REG_BINARY /d \"03000000E7766B83316FD901\" /f",
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run\" /v \"EpicGamesLauncher\" /t REG_BINARY /d \"03000000F51C70A77A48D901\" /f"
+      ],
+      "revert": [
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run\" /v \"Discord\" /t REG_BINARY /d \"0200000000000000000000000000\" /f",
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run\" /v \"Spotify\" /t REG_BINARY /d \"0200000000000000000000000000\" /f",
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run\" /v \"Steam\" /t REG_BINARY /d \"0200000000000000000000000000\" /f",
+        "Reg.exe add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run\" /v \"EpicGamesLauncher\" /t REG_BINARY /d \"0200000000000000000000000000\" /f"
+      ]
+    },
+    {
+      "id": "flush-dns",
+      "ui": "General Tweaks → Flush DNS Cache",
+      "revertible": true,
+      "labels": [
+        "Flushing DNS resolver cache",
+        "Re-registering DNS"
+      ],
+      "forward": [
+        "ipconfig /flushdns",
+        "ipconfig /registerdns"
+      ],
+      "revert": [
+        "ipconfig /flushdns",
+        "ipconfig /registerdns"
+      ]
+    },
+    {
+      "id": "input-response",
+      "ui": "General Tweaks → Faster Input Response",
+      "revertible": true,
+      "labels": [
+        "Reducing keyboard repeat delay",
+        "Increasing keyboard repeat rate"
+      ],
+      "forward": [
+        "Reg.exe add \"HKCU\\Control Panel\\Keyboard\" /v \"KeyboardDelay\" /t REG_SZ /d \"0\" /f",
+        "Reg.exe add \"HKCU\\Control Panel\\Keyboard\" /v \"KeyboardSpeed\" /t REG_SZ /d \"31\" /f"
+      ],
+      "revert": [
+        "Reg.exe add \"HKCU\\Control Panel\\Keyboard\" /v \"KeyboardDelay\" /t REG_SZ /d \"1\" /f"
+      ]
+    },
+    {
+      "id": "laptop-basic",
+      "ui": "Laptop Tweaks → Basic Laptop Tweaks",
+      "revertible": true,
+      "note": "Laptop-only. Do not run on desktop.",
+      "labels": [
+        "Setting plugged-in cooling to active",
+        "Keeping battery cooling passive",
+        "Disabling USB selective suspend on AC",
+        "Setting Wi-Fi power saving to max performance on AC",
+        "Disabling PCIe link-state power saving on AC",
+        "Applying laptop power settings"
+      ],
+      "forward": [
+        "powercfg /setacvalueindex SCHEME_CURRENT 54533251-82be-4824-96c1-47b60b740d00 94d3a615-a899-4ac5-ae2b-e4d8f634367f 1",
+        "powercfg /setdcvalueindex SCHEME_CURRENT 54533251-82be-4824-96c1-47b60b740d00 94d3a615-a899-4ac5-ae2b-e4d8f634367f 0",
+        "powercfg /setacvalueindex SCHEME_CURRENT 2a737441-1930-4402-8d77-b2bebba308a3 48e6b7a6-50f5-4782-a5d4-53bb8f07e226 0",
+        "powercfg /setacvalueindex SCHEME_CURRENT 19cbb8fa-5279-450e-9fac-8a3d5fedd0c1 12bbebe6-58d6-4636-95bb-3217ef867c1a 0",
+        "powercfg /setacvalueindex SCHEME_CURRENT 501a4d13-42af-4429-9fd1-a8218c268e20 ee12f906-d277-404b-b6da-e5fa1a576df5 0",
+        "powercfg /setactive SCHEME_CURRENT"
+      ],
+      "revert": [
+        "powercfg /setacvalueindex SCHEME_CURRENT 2a737441-1930-4402-8d77-b2bebba308a3 48e6b7a6-50f5-4782-a5d4-53bb8f07e226 1",
+        "powercfg /setacvalueindex SCHEME_CURRENT 501a4d13-42af-4429-9fd1-a8218c268e20 ee12f906-d277-404b-b6da-e5fa1a576df5 1",
+        "powercfg /setactive SCHEME_CURRENT"
+      ]
+    },
+    {
+      "id": "laptop-battery-perf",
+      "ui": "Laptop Tweaks → Max Performance on Battery",
+      "revertible": true,
+      "note": "Heavy battery drain; revert restores balanced battery savings.",
+      "labels": [
+        "Setting CPU minimum state to 100% on battery",
+        "Setting CPU maximum state to 100% on battery",
+        "Disabling USB selective suspend on battery",
+        "Setting Wi-Fi to max performance on battery",
+        "Applying battery power settings"
+      ],
+      "forward": [
+        "powercfg /setdcvalueindex SCHEME_CURRENT 54533251-82be-4824-96c1-47b60b740d00 893dee8e-2bef-41e0-89c6-b55d0929964c 100",
+        "powercfg /setdcvalueindex SCHEME_CURRENT 54533251-82be-4824-96c1-47b60b740d00 bc5038f7-23e0-4960-96da-33abaf5935ec 100",
+        "powercfg /setdcvalueindex SCHEME_CURRENT 2a737441-1930-4402-8d77-b2bebba308a3 48e6b7a6-50f5-4782-a5d4-53bb8f07e226 0",
+        "powercfg /setdcvalueindex SCHEME_CURRENT 19cbb8fa-5279-450e-9fac-8a3d5fedd0c1 12bbebe6-58d6-4636-95bb-3217ef867c1a 0",
+        "powercfg /setactive SCHEME_CURRENT"
+      ],
+      "revert": [
+        "powercfg /setdcvalueindex SCHEME_CURRENT 54533251-82be-4824-96c1-47b60b740d00 893dee8e-2bef-41e0-89c6-b55d0929964c 5",
+        "powercfg /setdcvalueindex SCHEME_CURRENT 2a737441-1930-4402-8d77-b2bebba308a3 48e6b7a6-50f5-4782-a5d4-53bb8f07e226 1",
+        "powercfg /setdcvalueindex SCHEME_CURRENT 19cbb8fa-5279-450e-9fac-8a3d5fedd0c1 12bbebe6-58d6-4636-95bb-3217ef867c1a 2",
+        "powercfg /setactive SCHEME_CURRENT"
+      ]
+    },
+    {
+      "id": "laptop-display",
+      "ui": "Laptop Tweaks → Lid & Display Optimizations",
+      "revertible": true,
+      "labels": [
+        "Setting lid close action to do nothing (AC)",
+        "Disabling display timeout on AC",
+        "Disabling adaptive brightness (AC)",
+        "Applying display power settings"
+      ],
+      "forward": [
+        "powercfg /setacvalueindex SCHEME_CURRENT 4f971e89-eebd-4455-a8de-9e59040e7347 5ca83367-6e45-459f-a27b-476b1d01c936 0",
+        "powercfg /change monitor-timeout-ac 0",
+        "powercfg /setacvalueindex SCHEME_CURRENT 7516b95f-f776-4464-8c53-06167f40cc99 fbd9aa66-9553-4097-ba44-ed6e9d65eab8 0",
+        "powercfg /setactive SCHEME_CURRENT"
+      ],
+      "revert": [
+        "powercfg /setacvalueindex SCHEME_CURRENT 4f971e89-eebd-4455-a8de-9e59040e7347 5ca83367-6e45-459f-a27b-476b1d01c936 1",
+        "powercfg /change monitor-timeout-ac 10",
+        "powercfg /setacvalueindex SCHEME_CURRENT 7516b95f-f776-4464-8c53-06167f40cc99 fbd9aa66-9553-4097-ba44-ed6e9d65eab8 1",
+        "powercfg /setactive SCHEME_CURRENT"
+      ]
+    },
+    {
+      "id": "telemetry",
+      "ui": "(bundled, no separate card — triggered alongside system tweaks)",
+      "revertible": true,
+      "labels": [
+        "Disabling Customer Experience Improvement tasks",
+        "Disabling Application Experience tasks",
+        "Disabling ScheduledDefrag / DiskDiagnostic / Feedback / Maps / WinSAT",
+        "Disabling telemetry & advertising ID"
+      ],
+      "forward": [
+        "schtasks /change /tn \"\\Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator\" /disable",
+        "schtasks /change /tn \"\\Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser\" /disable",
+        "schtasks /change /tn \"\\Microsoft\\Windows\\Application Experience\\ProgramDataUpdater\" /disable",
+        "schtasks /Change /TN \"Microsoft\\Windows\\Defrag\\ScheduledDefrag\" /Disable",
+        "schtasks /Change /TN \"Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector\" /Disable",
+        "schtasks /Change /TN \"Microsoft\\Windows\\Feedback\\Siuf\\DmClient\" /Disable",
+        "schtasks /Change /TN \"Microsoft\\Windows\\Maps\\MapsUpdateTask\" /Disable",
+        "schtasks /Change /TN \"Microsoft\\Windows\\Maintenance\\WinSAT\" /Disable",
+        "Reg.exe add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v \"AllowTelemetry\" /t REG_DWORD /d \"0\" /f",
+        "Reg.exe add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo\" /v \"Enabled\" /t REG_DWORD /d \"0\" /f"
+      ],
+      "revert": [
+        "schtasks /change /tn \"\\Microsoft\\Windows\\Customer Experience Improvement Program\\Consolidator\" /enable",
+        "schtasks /change /tn \"\\Microsoft\\Windows\\Application Experience\\Microsoft Compatibility Appraiser\" /enable",
+        "schtasks /change /tn \"\\Microsoft\\Windows\\Application Experience\\ProgramDataUpdater\" /enable",
+        "schtasks /Change /TN \"Microsoft\\Windows\\Defrag\\ScheduledDefrag\" /Enable",
+        "schtasks /Change /TN \"Microsoft\\Windows\\DiskDiagnostic\\Microsoft-Windows-DiskDiagnosticDataCollector\" /Enable",
+        "schtasks /Change /TN \"Microsoft\\Windows\\Feedback\\Siuf\\DmClient\" /Enable",
+        "schtasks /Change /TN \"Microsoft\\Windows\\Maps\\MapsUpdateTask\" /Enable",
+        "schtasks /Change /TN \"Microsoft\\Windows\\Maintenance\\WinSAT\" /Enable",
+        "Reg.exe add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v \"AllowTelemetry\" /t REG_DWORD /d \"1\" /f",
+        "Reg.exe add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo\" /v \"Enabled\" /t REG_DWORD /d \"1\" /f"
+      ]
+    }
+  ],
+  "procreduce": {
+    "id": "procreduce",
+    "ui": "Process Reduction → Reduce Processes",
+    "revertible": "transient",
+    "note": "Calls EmptyWorkingSet on 10-20 safe background processes; reports freed MB. Reboot restores.",
+    "action": "procreduce"
+  }
+}

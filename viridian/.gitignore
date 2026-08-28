@@ -1,0 +1,6 @@
+snapshot-*/
+snapshot/
+*.reg
+*.pow
+hashes.txt
+__pycache__/

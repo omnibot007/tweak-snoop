@@ -1,0 +1,2 @@
+0000000000000000000000000000000000000000 87ca871ee395d2bc4f853316535b3b10c6e5af92 LENOVO <lenovo@local> 1787953646 -0700	commit (initial): feat: stealth pack — 8 tasks + 2 regs telemetry kill, verified from Viridian engine
+87ca871ee395d2bc4f853316535b3b10c6e5af92 64d7e05bcb7047aea5061d7acbca03fd41d817eb LENOVO <lenovo@local> 1787953676 -0700	commit: fix: apply script encoding; verified stealth applied (AllowTelemetry 0, tasks Disabled)
