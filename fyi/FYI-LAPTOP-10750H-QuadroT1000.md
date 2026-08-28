@@ -69,3 +69,25 @@ Revert: `viridian\scripts\Revert-All.ps1 -DryRun $false` or `pc-cleanup -Undo Al
 - PowerThrottlingOff 1 âœ…
 - Stealth telemetry 0 + Consolidated Disabled âœ…
 - MenuShowDelay 0, Transparency 0 âœ…
+
+---
+
+## APPLIED 2026-08-28 15:45 — Safe Pack + 5 Squeezed (Verified)
+
+**Backup:** C:\Users\LENOVO\.backup\laptop-safepack-20260828-154546\ (16 .reg) + Restore Point laptop safepack 20260828-154546
+
+**Applied (9 writes, 1 skipped):**
+- HKCU\Control Panel\Mouse MouseHoverTime 400->10 ? (verified 10)
+- HKLM\...\Multimedia\SystemProfile NetworkThrottlingIndex 10->4294967295 (0xFFFFFFFF) ?
+- HKLM\...SystemProfile SystemResponsiveness 0->10 ?
+- HKLM\...\PriorityControl Win32PrioritySeparation 36->38 ?
+- HKCU\...\Search SearchboxTaskbarMode <not set>->0 ?
+- HKCU\...\Advanced ShowCortanaButton <not set>->0 ?
+- HKCU\...\ContentDeliveryManager SubscribedContent-338389Enabled <not set>->0 ?
+- HKCU\...ContentDeliveryManager SubscribedContent-310093Enabled <not set>->0 ?
+- HKCU\...\Advanced TaskbarDa -> 0 ? Access denied (Widgets taskbar, not present on this build — skipped, no impact)
+- Confirmed already: StartupDelayInMSec 0, MenuShowDelay 0, MinAnimate 0, TaskbarAnimations 0, EnableTransparency 0, PowerThrottlingOff 1, High Performance 8c5e..., AllowTelemetry 0 ?
+
+**Squeezed 5 = 4 applied + 1 skipped** — all Safe HKCU, no reboot needed except Explorer refresh for visual tweaks.
+
+**Revert:** eg import C:\Users\LENOVO\.backup\laptop-safepack-*\*.reg or 	weak-snoop\pc-cleanup -Undo All or restore point.
