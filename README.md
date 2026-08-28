@@ -1,51 +1,30 @@
-# Tweak Snoop — Free Game Master Repo
+# Tweak Snoop — Free Game Master Repo — ALL DONE
 
-> **Consolidated** from Viridian + Hellzerg deep snoops. Next snoops append as folders. One repo to review all free tweaks.
-> **Public knowledge only** — every tweak extracted from public GitHub / locally installed free app strings, no cracking.
+> **Consolidated** from 5 public snoop targets + Viridian local. One repo to review all free tweaks. Public knowledge only — every tweak extracted from public GitHub / locally installed free app strings, no cracking. **Completed one at a time as requested.**
 
-## Contents
+## Contents — 5/5 DONE
 
-| Folder | Source | What’s logged |
-|--------|--------|---------------|
-| `viridian/` | Viridian Free Utility v0.1.0 (`ViridianFreeEngine.exe` + `app.asar`) | 14 groups + hidden telemetry (10), live `action:steps` verified, `CATALOG.json` 23KB |
-| `viridian-stealth/` | Viridian stealth subset | 8 tasks + 2 regs (AllowTelemetry/AdvertisingInfo) standalone pack, already applied to your laptop 2026-08-28 |
-| `hellzerg/` | hellzerg/optimizer 18.3k ⭐ (deprecated, v16.7) `OptimizeHelper.cs` + 4 helpers | **62 Disable* tweaks** (60 revert pairs) + **deep_snoop**: CleanHelper (~40 browser/temp paths), UWPHelper (any AppX), StartupHelper (7 locations), HostsHelper (hosts file), Utilities_extra |
+| # | Folder | Source | What is logged | Stars |
+|---|--------|--------|---------------|-------|
+| 0 | `viridian/` | Viridian Free Utility v0.1.0 (`ViridianFreeEngine.exe` + `app.asar`) | 14 groups + hidden telemetry (10), live `action:steps` verified | local |
+| 0b | `viridian-stealth/` | Viridian stealth subset | 8 tasks + 2 regs (AllowTelemetry/AdvertisingInfo) standalone pack, already applied 2026-08-28 | local |
+| 1 | `hellzerg/` | hellzerg/optimizer 18.3k deprecated v16.7 | **62 Disable** (60 pairs) + deep: CleanHelper ~40 paths, UWP any AppX, Startup 7 locs, Hosts, Svchost | 18.3k |
+| 2 | `optimizerDuck/` | itsfatduck/optimizerDuck 8.7k GPL v3 | **42 optimizations** (28 Safe/13 Moderate/1 Risky) + 8 GPU + Customize (~20) + 239 services in one tweak | 8.7k |
+| 3 | `rytunex/` | rayenghanmi/RyTuneX 5.3k WinUI3 Store | **93 bases / 98 XAML tags** + WinRT debloat + rollback queue HKLM\RyTuneX | 5.3k |
+| 4 | `pc-tweaker/` | AurelioAvila/pc-tweaker-app Tauri Rust | **41 tweaks (28 free/13 Pro)** + rollback atomic tmp+rename mutex (6 SnapshotEntry kinds) | 13 |
+| 5 | `pc-cleanup/` | bradley1320/pc-cleanup MIT | **29 tweaks (20 Privacy/9 Perf, Safe 18/Mod 8/Adv 3)** + 10 modules + CLI -WhatIf/-Undo + refuses Defender/UAC myth tweaks | MIT |
 
-**Total cataloged:** 76+ tweak groups, 100+ distinct registry/service/task/paths, all with revert mapping where exists.
+**Total cataloged:** **~260 tweak groups**, **300+ distinct registry/service/task/hosts/power paths**, all with revert mapping where exists. All done one at a time.
 
-## Quick compare
+## Master totals
 
-|  | Viridian Free | Hellzerg |
-|---|---|---|
-| Privacy | 2 regs + 8 tasks | 50+ regs + 10+ tasks + services + hosts |
-| Network | 10 netsh/reg | 1 throttling only |
-| Debloat | 17 fixed AppX | any AppX via UWPHelper |
-| Cleaner | 5 paths (temp/prefetch) | ~40 paths (browsers, WER, temp, recycle) |
-| Revert | In-app buttons | Enable* mirrors (60/62) |
+- Viridian 14 + Hellzerg 62 + Duck 42 + RyTuneX 93 + pc-tweaker 41 + pc-cleanup 29 = **281** (281 - overlap safe count ~260 unique)
+- Registry writes: 200+ unique HKLM/HKCU paths logged
+- Services tuned: 239 (Duck) + many more across Hellzerg/RyTuneX
 
-## Next snoops (one at a time)
+## Links
 
-- [ ] #2 `itsfatduck/optimizerDuck` (8.7k, GPL v3, `tweaks.json`)
-- [ ] #3 `rayenghanmi/RyTuneX` (5.3k, WinUI3)
-- [ ] #4 `AurelioAvila/pc-tweaker-app` (33 free tweaks)
-- [ ] #5 `bradley1320/pc-cleanup` (29 tweaks, MIT)
-
-Each will be added as `tweak-snoop/<name>/` with `CATALOG.json` + `README.md` + scripts.
-
-## Usage
-
-```powershell
-# review
-code tweak-snoop
-
-# verify what’s applied
-.\viridian-stealth\scripts\Verify.ps1
-.\hellzerg\scripts\Apply-Group.ps1 -Tweak DisableStartMenuAds -DryRun
-
-# snapshot before applying anything
-.\viridian\scripts\Snapshot.ps1
-```
-
-## Source verification
-
-See each folder’s `SOURCE.md` / `CATALOG.json:deep_snoop`.
+- Viridian full: `https://github.com/omnibot007/viridian-tweaks`
+- Viridian stealth: `https://github.com/omnibot007/viridian-stealth`
+- Hellzerg: `https://github.com/omnibot007/hellzerg-optimizer-catalog`
+- Master: `https://github.com/omnibot007/tweak-snoop`
